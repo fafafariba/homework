@@ -19,6 +19,7 @@ class Stack
 end
 
 #Exercise 2
+
 class Queue
   def initialize
     @quarray=[]
@@ -39,6 +40,7 @@ class Queue
 end
 
 #Exercise 3
+
 class Map
   def initialize
     @map = []
@@ -55,7 +57,4 @@ class Map
   def remove(key)
     @map.delete_if { |el| el[0] == key }
   end
-
-
-
 end
