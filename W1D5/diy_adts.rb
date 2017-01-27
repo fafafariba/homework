@@ -1,8 +1,8 @@
 #Exercise 1
 
 class Stack
-  def initialize(stack)
-    @ivar = stack
+  def initialize
+    @ivar = []
   end
 
   def add(el)
@@ -14,30 +14,48 @@ class Stack
   end
 
   def show
-    print stack
+    print @ivar
   end
 end
 
 #Exercise 2
 class Queue
   def initialize
+    @quarray=[]
   end
 
   def enqueue(el)
-    self.push(el)
+    @quarray.push(el)
   end
 
   def dequeue
-    self.shift
+    @quarray.shift
   end
 
   def show
-    print self
+    print @quarray
   end
 
 end
 
 #Exercise 3
 class Map
+  def initialize
+    @map = []
+  end
+
+  def assign(key, value)
+    @map << [key, value] if lookup(key).empty?
+  end
+
+  def lookup(key)
+    @map.select { |el| el[0] == key }
+  end
+
+  def remove(key)
+    @map.delete_if { |el| el[0] == key }
+  end
+
+
 
 end
