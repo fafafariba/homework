@@ -2,8 +2,8 @@ class Board
   attr_accessor :cups
 
   def initialize(name1, name2)
-    @name1 = name1
-    @name2 = name2
+    @player1 = name1
+    @player2 = name2
     @cups = Array.new(14) { [] }
     place_stones
   end
