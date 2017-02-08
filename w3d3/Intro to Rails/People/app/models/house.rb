@@ -1,6 +1,12 @@
 class House < ActiveRecord::Base
-  validates :address, :presence => true
-  validates :address, :uniquness => true
+  validates :address, presence: true, uniquness:  true
+  validates :ca_only
+
+  def ca_only
+    unless self.address.include?("CA")
+      self.errors[:address] << "Address must be in CA" #array of errors
+    end
+  end
 
   has_many :residents,
     primary_key: :id,
