@@ -1,4 +1,7 @@
 class House < ActiveRecord::Base
+  validates :address, :presence => true
+  validates :address, :uniquness => true
+
   has_many :residents,
     primary_key: :id,
     foreign_key: :house_id,
@@ -8,6 +11,10 @@ class House < ActiveRecord::Base
     through: :people, #name of association in this class
     source: :jobs
 
+  #for jobs
+    has_one :house,
+      through: :person,
+      source: :house #name of ASSOCIAtION method
 
   # def jobs #each person living in the house has a jobs
   #   jobs = []
