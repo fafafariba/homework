@@ -62,6 +62,38 @@
       </li>
     </ol>
   </section>
+  <br><br>
+  <section>
+    <form action="/reviews" method="post">
+      <label for="rating">Rating</label>
+      <!-- <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_toekn %>"> -->
+      <input id="rating_1" type="radio" name="recipe[rating]" value="1">1
+      <input id="rating_2" type="radio" name="recipe[rating]" value="2">2
+      <input id="rating_3" type="radio" name="recipe[rating]" value="3">3
+      <input id="rating_4" type="radio" name="recipe[rating]" value="4">4
+      <input id="rating_5" type="radio" name="recipe[rating]" value="5" checked>5
+
+      <br><br>
+
+      <label for="recipe_expertise">Cooking Expertise</label>
+      <select id="recipe_expertise" name="recipe[expertise]">
+        <option disabled selected value="Select Cooking Expertise">Select Cooking Expertise</option>
+        <option value="recipe_expertise_sometimes">Sometimes Cook</option>
+        <option value="recipe_expertise_everyday">Cook Everytday</option>
+        <option value="recipe_expertise_hobby">Cooking is a Hobby</option>
+        <option value="recipe_expertise_chef">Professional Chef</option>
+      </select>
+
+      <br><br>
+
+      <label for="recipe_review">Review</label>
+        <textarea id="recipe_review" name="recipe[review]"></textarea>
+      </label>
+      <input type="button" value="Submit!">
+    </form>
+  </section>
+
+  <br><br>
 
   <footer>
     <p> Original recipe by: every cake in the box ever</p>
