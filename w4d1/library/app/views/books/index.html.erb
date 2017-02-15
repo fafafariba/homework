@@ -1,11 +1,11 @@
-<h1>Books</h1>
+<h1>@books.</h1>
+
+<!-- ERB = Embedded ruby code -->
 
 <ul>
-  <% @books.each do |book| %>
-    <li><%= book.title %> by <%= book.author %></li>
-    <%= button_to "delete", book_url(book), method: :delete %>
-    <br>
+   <% @books.each do |book| %>
+      <%# used for Ruby logic, not to be rendered %>
+    <h1>Au<%= book.title %> by <%= book.author %></li>
+      <%#= used for Ruby logic, not to be rendered%>
   <% end %>
 </ul>
-
-<%= link_to "Add a book", "/books/new" %>

@@ -1,0 +1,45 @@
+<h1>Add book to Library!</h1>
+
+<%= render 'form', book: @book, action: :new %>
+
+<!-- action: URL to which we want to send data  -->
+<!-- method: HTTP method to which we want to use -->
+<!-- Can look this up in rake routes -->
+<form action="<%= books_url %>" method="post">
+
+  <!-- text means textbox -->
+  <label for="title">Title</label>  <!-- What appears -->
+  <input id="title" type="text" name="book[title]">
+    <!-- text means text box, data stored in name -->
+    <!-- here, key of title, this is passed into params
+            remember that params includes form data-->
+    <!-- Writing name as key of book makes params easier to pick up (that title, author, year are associated with this book) -->
+
+      <br><br>
+  <label for="author">Author</label>
+  <input id="author" type="text" name="book[author]">
+
+    <br><br>
+
+  <label for="year">Year</label>
+  <input id="year" type="text" name="book[year]">
+
+  <br><br>
+  <label for="category">Category</label>
+  <select id="category" name="book[category]"> <!--drop down menu -->
+    <option disabled selected>Please select:</option>
+    <!-- User cannot click so keyword disabled, selected means default option -->
+    <option value="Fiction">Fiction</option> <!--generally want value and what's rendered to match -->
+    <option value="Non-Fiction">Non-Fiction</option>
+    <option value="Memoir">Memoir</option>
+  </select>
+
+  <br>
+
+  <!--textarea for long strings -->
+  <label for="description">Description</label>
+  <textarea id="descripiton" name="book[description]" rows="2" cols="50"></textarea>
+
+  <input type="submit" value="Add book"> <!-- button -->
+
+</form>

@@ -1,0 +1,71 @@
+<!-- too much copying and pasting of html, not DRY -->
+
+<h1>Edit Book in Library!</h1>
+
+<!--
+Things to change from copy/paste html
+-action
+-hidden input patch
+-prefilled values
+-submit button
+-->
+<% if action == :edit %>
+  <% action_url = book_url(book)  %>
+<% else %>
+  <% action_url = books_url  %>
+<% end %>
+
+<!-- action: URL to which we want to send data  -->
+<!-- method: HTTP method to which we want to use -->
+<!-- Can look this up in rake routes
+      find corresponding prefix or first prefix going up-->
+<form action="<%= action_url %>" method="post">
+  <!-- browsers can only have post or get methods so cannot have patch method here, instead:-->
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+    <!-- hidden, _method will be actual method -->
+
+  <!-- text means textbox -->
+  <label for="title">Title</label>  <!-- What appears -->
+  <input id="title" type="text" name="book[title]" value=" <%= book.title %> ">
+    <!-- text means text box, data stored in name -->
+    <!-- here, key of title, this is passed into params
+            remember that params includes form data-->
+    <!-- Writing name as key of book makes params easier to pick up (that title, author, year are associated with this book) -->
+
+      <br><br>
+  <label for="author">Author</label>
+  <input id="author" type="text" name="book[author]" value=" <%= book.author %> ">
+
+    <br><br>
+
+  <label for="year">Year</label>
+  <input id="year" type="text" name="book[year]" value=" <%= book.year %> ">
+
+  <br><br>
+  <label for="category">Category</label>
+  <select id="category" name="book[category]"> <!--drop down menu -->
+    <option disabled <%= book.category ? "" : "selected"%> >Please select:</option>
+    <!-- User cannot click so keyword disabled, selected means default option -->
+    <option value="Fiction"
+      <%= book.category == "Fiction" ? "selected" : ""%>  >Fiction</option> <!--generally want value and what's rendered to match -->
+    <option value="Non-Fiction"
+    <%= book.category == "Non-Fiction" ? "selected" : ""%>  Non-Fiction</option>
+    <option value="Memoir"
+    <%= @book.category == "Memoir"  ? "selected" : ""%>  Memoir</option>
+  </select>
+  <!-- Use ruby logic to write ternary statement about whether current category is equal to any of the above categories, if so set as pre-filled, defaul by adding the word 'selected' as we did with the :new and 'Please Select' -->
+
+  <!-- UPDATE: now use ruby logic to see whether form is for action :edit or :new => @book is existing book in :edit and @book is Book.new (no params so all values nil) in :new. => if :new, then @book.category will be falsey and if :edit then it will have some value  -->
+  <br>
+
+  <!--textarea for long strings -->
+  <label for="description">Description</label>
+  <textarea id="descripiton" name="book[description]" rows="2" cols="50"
+     <%= @book.description %> >
+   </textarea>
+
+  <input type="submit" value=" <%= (action == :edit ? 'Update Book' : 'Add Book') %> "> <!-- button, also use single quotes inside ruby tags -->
+
+</form>
