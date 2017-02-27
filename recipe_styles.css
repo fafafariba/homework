@@ -1,6 +1,9 @@
 body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
   background-color: white;
+}
+
+header > img {
+  width: 100px;
 }
 
 h1 {
@@ -13,27 +16,26 @@ h2 {
   color: darkturquoise;
 }
 
-ul li a {
-  text-decoration: none;
-  color: inherit;
-}
-
 ul {
   color: tan;
   list-style: none;
 }
 
+ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .ingredients-list {
   list-style: square inside;
-  color: black;
 }
 
 ol {
   list-style: georgian inside;
 }
 
-header > img {
-  width: 100px;
+li:nth-of-type(2n){
+  background-color: lightgrey;
 }
 
 figure {
@@ -42,4 +44,39 @@ figure {
 
 figure a {
   text-decoration: none;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  width: 27px;
+  height: 27px;
+  cursor: pointer;
+  background-image: url(https://raw.githubusercontent.com/appacademy/curriculum/master/html-css/assets/stars.png?token=AMHr9m9Zq6kkzOERWw2ObE1KaXTWNCQpks5YvOuYwA%3D%3D);
+  vertical-align: bottom;
+}
+
+input[type="radio"]:checked { /* how does this fill in the star??? */
+  background-position: 30px 30px;
+}
+
+select {
+  cursor: pointer;
+  outline: none;
+}
+
+input[type="button"] {
+  cursor: pointer;
+  outline: none;
+}
+
+input:last-child {
+  background-color: gold;
+}
+
+input:last-child:hover { /*no space after colon*/
+  -webkit-filter: brightness(70%);
+}
+
+h2 + .recipe_review {
+  border-top: 1px solid black;
 }

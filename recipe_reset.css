@@ -1,0 +1,24 @@
+html, body, section, h1, h2, ul, ol, li, p, figure, form, label, textarea, input, option {
+  margin: 20; /*if these set to inherit, will find values below */*/
+  border: 0; /*think of these as base defaults, hard coded in */*/
+  padding: 0; /*spaces between sections */
+  font-size: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+
+  background: transparent; /*makes each element transparent, doesn't
+  /*present an issue with color but if you use image will use new image
+  /*within each element instead of one overall image*/
+
+}
+
+body { /*values trickle down */
+  margin: 10px;
+  padding: 20px;
+  /*border: 10px solid red;*/
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, sans-serif;
+  /*better to specify font here */
+  color: black;
+}
