@@ -1,9 +1,24 @@
 body {
   background-color: white;
+  width: 900px;
+  margin: 0 auto;
+}
+
+aside {
+  width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  vertical-align: top;
+}
+
+section {
+  width: 700px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 header > img {
-  width: 100px;
+  width: 70px;
 }
 
 h1 {
@@ -16,34 +31,44 @@ h2 {
   color: darkturquoise;
 }
 
-ul {
-  color: tan;
-  list-style: none;
+nav {
+  display: inline-block;
 }
 
-ul li a {
+nav ul li {
+  color: tan;
+  list-style: none;
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 20px;
+  display: block;
+}
+
+ul li a, figure a {
   text-decoration: none;
   color: inherit;
 }
 
-.ingredients-list {
+/*.ingredients-list {
   list-style: square inside;
-}
+}*/
 
+.ingredients-list li {
+  margin: 15px 0;
+}
 ol {
   list-style: georgian inside;
 }
 
-li:nth-of-type(2n){
+ol li:nth-of-type(2n){
   background-color: lightgrey;
+  margin: 15px 0;
 }
 
 figure {
   color: darkturquoise;
-}
-
-figure a {
-  text-decoration: none;
 }
 
 input[type="radio"] {
@@ -55,13 +80,14 @@ input[type="radio"] {
   vertical-align: bottom;
 }
 
-input[type="radio"]:checked { /* how does this fill in the star??? */
+input[type="radio"]:checked { /* how does this fill in the star???*/
   background-position: 30px 30px;
 }
 
 select {
   cursor: pointer;
   outline: none;
+  margin: 10px 0;
 }
 
 input[type="button"] {
@@ -73,10 +99,14 @@ input:last-child {
   background-color: gold;
 }
 
-input:last-child:hover { /*no space after colon*/
+input:last-child:hover {
   -webkit-filter: brightness(70%);
 }
 
 h2 + .recipe_review {
   border-top: 1px solid black;
+}
+
+textarea {
+  width: 350px;
 }

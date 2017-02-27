@@ -63,42 +63,37 @@
         After 25 minutes, make sure cake is not burnt. Stick a fork in the cake. If there's any residue on the fork prongs, needs more baking. If not, then it's ready for your consumption and pleasure.
       </li>
     </ol>
-  </section>
-  <br><br>
-  <section id="reviews">
-    <h2>Reviews</h2>
-    <form action="/reviews" method="post">
-      <label for="recipe_name">Name</label>
-      <input id="recipe_name" type="text" name="recipe[name]">
+    <section id="reviews">
+      <h2>Reviews</h2>
+      <form action="/reviews" method="post">
+        <label for="recipe_name">Name</label>
+        <input id="recipe_name" type="text" name="recipe[name]">
+        <br><br>
+        <!-- <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_token %>"> -->
+        <input type="radio" name="recipe[rating]" value="rating">1
+        <input type="radio" name="recipe[rating]" value="rating">2
+        <input type="radio" name="recipe[rating]" value="rating">3
+        <input type="radio" name="recipe[rating]" value="rating">4
+        <input type="radio" name="recipe[rating]" value="rating" checked>5
 
-      <br><br>
+        <br><br>
 
-      <label for="rating">Rating</label>
-      <!-- <input type="hidden" name="authenticity_token" value="<%#= form_authenticity_toekn %>"> -->
-      <input type="radio" name="recipe[rating]" value="rating">1
-      <input type="radio" name="recipe[rating]" value="rating">2
-      <input type="radio" name="recipe[rating]" value="rating">3
-      <input type="radio" name="recipe[rating]" value="rating">4
-      <input type="radio" name="recipe[rating]" value="rating" checked>5
+        <select id="recipe_expertise" name="recipe[expertise]">
+          <option disabled selected value="Select Cooking Expertise">Select Cooking Expertise</option>
+          <option value="recipe_expertise_sometimes">Sometimes Cook</option>
+          <option value="recipe_expertise_everyday">Cook Everytday</option>
+          <option value="recipe_expertise_hobby">Cooking is a Hobby</option>
+          <option value="recipe_expertise_chef">Professional Chef</option>
+        </select>
 
-      <br><br>
+        <br><br>
 
-      <label for="recipe_expertise">Cooking Expertise</label>
-      <select id="recipe_expertise" name="recipe[expertise]">
-        <option disabled selected value="Select Cooking Expertise">Select Cooking Expertise</option>
-        <option value="recipe_expertise_sometimes">Sometimes Cook</option>
-        <option value="recipe_expertise_everyday">Cook Everytday</option>
-        <option value="recipe_expertise_hobby">Cooking is a Hobby</option>
-        <option value="recipe_expertise_chef">Professional Chef</option>
-      </select>
-
-      <br><br>
-
-      <label for="recipe_review">Review</label>
-        <textarea id="recipe_review" name="recipe[review]"></textarea>
-      </label>
-      <input type="button" value="Submit!">
-    </form>
+        <label for="recipe_review">Review</label>
+          <textarea id="recipe_review" name="recipe[review]"></textarea>
+        </label>
+        <input type="button" value="Submit!">
+      </form>
+    </section>
   </section>
 
   <br><br>
