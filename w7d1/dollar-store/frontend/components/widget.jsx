@@ -1,6 +1,6 @@
 import React from 'react';
 import Currency from './currency';
-import selectCurrency from '../actions';
+import { selectCurrency } from '../actions';
 
 class Widget extends React.Component {
 
@@ -11,7 +11,7 @@ class Widget extends React.Component {
     // require this component to re-render whenever the store's state changes
     this.props.store.subscribe(this.forceUpdate);
     this.currencies = ["USD", "EUR", "CAD", "JPY", "GBP", "CNY"];
-    // this.selectCurrency = selectCurrency.bind(this);
+    this.selectCurrency = selectCurrency.bind(this);
   }
 
   fetchRates(currency) {
@@ -25,7 +25,7 @@ class Widget extends React.Component {
         // use the action creator 'selectCurrency' to build the object to
         // be dispatched
         this.props.store.dispatch(
-          this.selectCurrency(resp.base, resp.rates).bind(this)
+          this.selectCurrency(resp.base, resp.rates)
         );
       }.bind(this)
     });
